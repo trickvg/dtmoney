@@ -1,21 +1,22 @@
-import { useTransactionModal } from '../../hooks/useTransactionModal'
+import logoImg from '../../assets/logo.svg';
+import { Container, Wrapper } from './styles';
 
-import { Container, Content } from './styles'
+interface HeaderProps {
+  onOpenNewTransactionModal: () => void;
+}
 
-import logoImg from '../../assets/logo.svg'
-
-export function Header() {
-  const { handleOpenModal } = useTransactionModal()
-  
+export function Header({ onOpenNewTransactionModal }: HeaderProps) {
   return (
     <Container>
-      <Content>
-        <img src={logoImg} alt="dt monet" />
-
-        <button type="button" onClick={() => handleOpenModal('newTransaction')}>
+      <Wrapper>
+        <img src={ logoImg } alt="dt.money" />
+        <button 
+          type="button"
+          onClick={ onOpenNewTransactionModal }
+        >
           Nova transação
         </button>
-      </Content>
+      </Wrapper>
     </Container>
   )
-}
+} 
